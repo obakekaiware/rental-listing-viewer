@@ -1,0 +1,19 @@
+# 個人の検索条件（config.example.json をコピーして作成）
+config.json
+
+# SUUMOから取得したデータ（再配布しない）
+data/
+
+# Claude Code のローカル設定
+.claude/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# OS / エディタ
+.DS_Store
+Thumbs.db
+.vscode/

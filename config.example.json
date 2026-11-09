@@ -1,0 +1,16 @@
+{
+  "suumo": {
+    "search_path": "/chintai/tokyo/sc_musashino/",
+    "display_name": "東京都武蔵野市",
+    "madori_codes": {
+      "2DK": "06",
+      "2LDK": "07",
+      "3DK": "09",
+      "3LDK": "10"
+    },
+    "target_towns": [],
+    "page_size": 50,
+    "max_pages": 60,
+    "request_delay_seconds": 2.0
+  }
+}

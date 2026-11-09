@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>賃貸物件ビューア</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <header>
+    <h1>賃貸物件ビューア <span id="area-name"></span></h1>
+    <div class="toolbar">
+      <button id="scrape-btn">最新の情報を取得</button>
+      <span id="scrape-status"></span>
+      <span id="last-updated"></span>
+    </div>
+    <div class="toolbar">
+      <input id="filter-input" type="text" placeholder="建物名・住所・駅名で絞り込み">
+      <select id="madori-filter">
+        <option value="">間取り: すべて</option>
+      </select>
+      <span id="result-count"></span>
+    </div>
+    <div class="toolbar">
+      <span class="toolbar-label">賃料(万円):</span>
+      <input id="rent-min" type="number" step="0.1" min="0" placeholder="下限" class="range-input">
+      <span>〜</span>
+      <input id="rent-max" type="number" step="0.1" min="0" placeholder="上限" class="range-input">
+      <span class="toolbar-label">専有面積(m²):</span>
+      <input id="menseki-min" type="number" step="1" min="0" placeholder="下限" class="range-input">
+      <span>〜</span>
+      <input id="menseki-max" type="number" step="1" min="0" placeholder="上限" class="range-input">
+    </div>
+    <div class="toolbar">
+      <span class="toolbar-label">町名:</span>
+      <div id="town-filter"></div>
+    </div>
+  </header>
+
+  <main>
+    <table id="listing-table">
+      <thead>
+        <tr>
+          <th data-key="rent_yen">賃料 <span class="arrow"></span></th>
+          <th data-key="admin_fee_yen">管理費 <span class="arrow"></span></th>
+          <th data-key="madori">間取り <span class="arrow"></span></th>
+          <th data-key="menseki_m2">専有面積 <span class="arrow"></span></th>
+          <th data-key="unit_price_yen">㎡単価 <span class="arrow"></span></th>
+          <th data-key="building_name">建物名 <span class="arrow"></span></th>
+          <th data-key="town">町 <span class="arrow"></span></th>
+          <th data-key="address">住所 <span class="arrow"></span></th>
+          <th>最寄り駅</th>
+          <th data-key="age_text">築年数 <span class="arrow"></span></th>
+          <th data-key="floor">階 <span class="arrow"></span></th>
+          <th data-key="deposit_yen">敷金 <span class="arrow"></span></th>
+          <th data-key="gratuity_yen">礼金 <span class="arrow"></span></th>
+          <th>詳細</th>
+        </tr>
+      </thead>
+      <tbody id="listing-body"></tbody>
+    </table>
+    <p id="empty-message" class="hidden">まだ物件データがありません。上の「最新の情報を取得」ボタンを押してください。</p>
+  </main>
+
+  <script src="{{ url_for('static', filename='app.js') }}"></script>
+</body>
+</html>
